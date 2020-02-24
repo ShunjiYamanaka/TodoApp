@@ -1,3 +1,7 @@
 .vs/
 packages/
 TodoApp.sln
+TodoApp/bin/
+TodoApp/obj/
+TodoApp/App_Data/
+TodoApp/Scripts/
