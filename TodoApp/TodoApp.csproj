@@ -113,6 +113,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CustomMembershipProvider.cs" />
+    <Compile Include="Models\CustomRoleProvider.cs" />
     <Compile Include="Models\Todo.cs" />
     <Compile Include="Models\TodoesContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
