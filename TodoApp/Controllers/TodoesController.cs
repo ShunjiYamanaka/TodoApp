@@ -10,6 +10,8 @@ using TodoApp.Models;
 
 namespace TodoApp.Controllers
 {
+    //SignInしていないと処理できない
+    [Authorize]
     public class TodoesController : Controller
     {
         private TodoesContext db = new TodoesContext();

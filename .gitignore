@@ -5,3 +5,5 @@ TodoApp/bin/
 TodoApp/obj/
 TodoApp/App_Data/
 TodoApp/Scripts/
+TodoApp/obj/Debug/
+TodoApp/Content/

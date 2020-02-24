@@ -6,6 +6,12 @@
     <title>@ViewBag.Title</title>
 </head>
 <body>
+    <div class="container">
+        @if (Request.IsAuthenticated) 
+        {
+            @Html.ActionLink("ログアウト", "SignOut", new { Controller = "Login"})
+        }
+    </div>
     <div>
         @RenderBody()
     </div>
