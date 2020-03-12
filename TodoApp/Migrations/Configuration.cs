@@ -44,7 +44,7 @@ namespace TodoApp.Migrations
             Role administrators = new Role()
             {
                 Id = 1,
-                RoleName = "Administrator",
+                RoleName = "Administrators",
                 Users = new List<User>()
             };
 

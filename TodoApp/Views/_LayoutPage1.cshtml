@@ -10,6 +10,13 @@
         @if (Request.IsAuthenticated) 
         {
             @Html.ActionLink("ログアウト", "SignOut", new { Controller = "Login"})
+            //どのユーザでログインしているか
+            if (User.IsInRole("Administrators"))
+            {
+                //AdministatorsであればUser管理リンクを表示
+                <span>|</span>
+                @Html.ActionLink("ユーザー管理", "Index", new { Controller = "Users" });
+            }
         }
     </div>
     <div>
