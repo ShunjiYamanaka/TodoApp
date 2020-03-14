@@ -25,5 +25,9 @@ namespace TodoApp.Models
         
         //ﾅﾋﾞｹﾞｰｼｮﾝ ﾌﾟﾛﾊﾟﾃｨ(1人のﾕｰｻﾞｰが複数のRoleを保持できる)
         public virtual ICollection<Role> Roles { get; set; }
+
+        [NotMapped]
+        [DisplayName("ロール")]
+        public List<int> RoleIds { get; set; }
     }
 }
