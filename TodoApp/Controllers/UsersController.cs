@@ -16,6 +16,8 @@ namespace TodoApp.Controllers
     {
         private TodoesContext db = new TodoesContext();
 
+        readonly private CustomMembershipProvider membershipProvider = new CustomMembershipProvider();
+
         // GET: Users
         public ActionResult Index()
         {
@@ -56,6 +58,8 @@ namespace TodoApp.Controllers
             if (ModelState.IsValid)
             {
                 user.Roles = roles;
+                //入力したユーザ名とパスワードをﾊｯｼｭ化する
+                user.Password = this.membershipProvider.GeneratePasswordHash(user.UserName, user.Password);
 
                 db.Users.Add(user);
                 db.SaveChanges();
@@ -102,7 +106,14 @@ namespace TodoApp.Controllers
                 }
 
                 dbUser.UserName = user.UserName;
-                dbUser.Password = user.Password;
+
+                //入力したパスワードとDBに格納されたパスワードが異なる場合
+                if (!dbUser.Password.Equals(user.Password)) 
+                {
+                    //ﾊｯｼｭ化してDBに登録する
+                    dbUser.Password = this.membershipProvider.GeneratePasswordHash(user.UserName, user.Password);
+                }
+
                 dbUser.Roles.Clear();
 
                 //新しいﾛｰﾙを作成する
